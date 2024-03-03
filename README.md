@@ -64,6 +64,16 @@
 
 A nest js backend
 
+## The .env file
+```
+USER_LIST_URL="https://randomuser.me/api/?results=10"
+MONGO_URI='mongodb://localhost/ums'
+REDIS_HOST='localhost'
+REDIS_PORT=6379
+MINUTE_MODE=true
+```
+
+
 ## Installation
 
 ```bash
