@@ -4,13 +4,13 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { TimerService } from './timer.service';
 import { UserService } from 'src/user/user.service';
 import { LogService } from 'src/log/log.service';
-import { UserModule } from 'src/user/user.module';
+import { UserModule } from '../user/user.module';
 import { BullModule } from '@nestjs/bull';
 import { TimerProcessor } from './timer.processor';
 import { MongooseModule } from '@nestjs/mongoose';
-import { UserSchema } from 'src/user/entities/user.entity';
-import { LogSchema } from 'src/log/entities/log.entity';
-import { LogModule } from 'src/log/log.module';
+import { UserSchema } from '../user/entities/user.entity';
+import { LogSchema } from '../log/entities/log.entity';
+import { LogModule } from '../log/log.module';
 
 @Module({
   imports: [

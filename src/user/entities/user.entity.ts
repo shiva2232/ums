@@ -1,4 +1,4 @@
-import { Gender, UserTitle } from 'src/enums/user.enum';
+import { Gender, UserTitle } from '../../enums/user.enum';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import {
   NameType,
