@@ -64,8 +64,7 @@ export class TimerService {
      * * _We can extend this by getMinutes()+60*getHours()+24*60*getDate()+.... and so on., but this will lag at extended period of time._
      * * Alternatively, to restrict this just moved to alternative standards.
      ************************************************/
-    const unblock: boolean =
-      Math.floor(new Date().getTime() / 60000) % 210 == 0;
+    const unblock: boolean = Math.floor(new Date().getTime() / 60000) % 210 == 0;
     if (unblock || process.env.MINUTE_MODE == 'true') {
       // restriction
       const { insertQueue, insertLogQueue, userQueue } = this;

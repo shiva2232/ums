@@ -72,10 +72,49 @@ REDIS_HOST='localhost'
 REDIS_PORT=6379
 MINUTE_MODE=false
 ```
+We can adjust the user data count by changing `results`'s Rvalue value at url.
+Here I've mentioned all the configuration required to run this application as of now. *If the database requires a password configure it accourdingly.*
 
+The keyword MINUTE_MODE will run the userfetch action at the start of every minute. **Don't set this as ```true``` in production**
+
+The Three and half hour cron is processed by the epoch time. So this routine will continue till the JS max safe integer which is ```Number.MAX_SAFE_INTEGER```
+```const isnow = Math.floor(new Date().getTime() / 60000) % 210 == 0;```
+* In the above operation, intially removed the values till seconds, so that we can process from the minutes(by getting integer value from floor operation).
+* Now the epoch time is in minutes. If the division with 210 (210 minutes = 3 hours 30 minutes) results remaining of 0 => it is the right time ```isnow = true``` to process data since the cron is executed every minutes with above condition( _result is in boolean_ ).  
+
+#### We don't need controller for the application anymore. we can remove it later. To reduce lack of difficulty ( ease ) intefacing purpose it is available now.
 
 ## Installation
 
+This application requires the installation of nest cli tool globally.
+
+```bash
+npm i -g @nestjs/cli
+```
+The requirement/dependency enviroinment I've used here is, 
+_node v21.6.1_ (via nvm)
+_redis-server_
+_mongo-org_
+
+make sure these project dependency is installed and service is running in local or remote accesible server.
+
+```bash
+# either service or systemctl (some linux standards may not have service)
+$ sudo service mongod status
+# if service not running start the service
+$ sudo service mongod start
+# if it not enabled/available in service units
+$ sudo systemctl enable mongod && sudo systemctl start mongod
+```
+**similarly operations we have to ensure with redis service daemon also
+```bash
+# pre required service dependency
+$ sudo apt-get install mongodb-org redis-server
+# make sure that right working version of nodejs( and npm) installed before.
+# nest global installatio
+$ npm i -g @nestjs/cli
+```
+change directory (cd) to the ums directory
 ```bash
 $ npm install
 ```

@@ -1,4 +1,4 @@
-import { Gender } from 'src/enums/user.enum';
+import { Gender } from '../../enums/user.enum';
 import { nameType, loginType, dobType, locationType } from '../user.type';
 import {
   IsEmail,

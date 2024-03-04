@@ -10,7 +10,7 @@ import {
   MinLength,
   MaxLength,
 } from 'class-validator';
-import { Gender } from 'src/enums/user.enum';
+import { Gender } from '../../enums/user.enum';
 import { locationType, loginType, dobType, nameType } from '../user.type';
 
 export class UpdateUserDto extends PartialType(CreateUserDto) {
