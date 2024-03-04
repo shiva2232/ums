@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\title{Project Documentation: UMS (User Management System)}
+\author{}
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	\section*{Project Overview}
+	The UMS project aims to create a backend system for fetching user data from the Random User Generator API, processing and storing it in Redis for queue management and caching, and finally storing the processed data in MongoDB. A cron job is implemented to handle this process every minute or every 3 1/2 hours based on the \texttt{MINUTE\_MODE} environment variable.
+	
+	\section*{Technology Stack}
+	\begin{itemize}[label=-]
+		\item Nest.js (with TypeScript)
+		\item MongoDB
+		\item Redis
+	\end{itemize}
+	
+	\section*{Api endpoints}
+	\begin{itemize}[label=-]
+		\item Application doesn't require any API endpoint.
+	\end{itemize}
+
+
+	\section*{Other references}
+	\begin{itemize}[label=-]
+		\item Endpoint has an optional param results where we have to give user data count. this has been set up in the .env file.
+		\item Added cron execution information by epoch time. More on Readme.md 
+	\end{itemize}
+	
+	\section*{Task Steps Completed}
+	\begin{enumerate}[label=\arabic*.]
+		\item \textbf{Set Up Project:}
+		\begin{itemize}[label=-]
+			\item Created a Node.js project using TypeScript.
+			\item Installed necessary dependencies including Redis and MongoDB connectors.
+		\end{itemize}
+		
+		\item \textbf{Fetch User Data:}
+		\begin{itemize}[label=-]
+			\item Implemented a module to fetch 10 user data from the Random User Generator API.
+		\end{itemize}
+		
+		\item \textbf{Redis Queue:}
+		\begin{itemize}[label=-]
+			\item Used Redis as a queue to store the fetched user data.
+			\item Implemented a mechanism to push 10 user data into the Redis queue daily.
+		\end{itemize}
+		
+		\item \textbf{Worker Process:}
+		\begin{itemize}[label=-]
+			\item Implemented a worker script to process data from the Redis queue.
+			\item Upon processing, stored the data in MongoDB.
+		\end{itemize}
+		
+		\item \textbf{MongoDB Schema:}
+		\begin{itemize}[label=-]
+			\item Designed a MongoDB schema to store user data.
+			\item Created a separate collection for logs.
+		\end{itemize}
+		
+		\item \textbf{Logging:}
+		\begin{itemize}[label=-]
+			\item Implemented logging of request time, URL, HTTP method, response JSON, and total response time for each request.
+		\end{itemize}
+		
+		\item \textbf{Cron Job:}
+		\begin{itemize}[label=-]
+			\item Set up a cron job to run every minute or every 3 1/2 hours based on the \texttt{MINUTE\_MODE} environment variable.
+			\item Used epoch time for scheduling the cron job.
+		\end{itemize}
+		
+		\item \textbf{Testing:}
+		\begin{itemize}[label=-]
+			\item Implemented unit tests to ensure the functionality of each module.
+			\item Included edge cases and error handling in the tests.
+		\end{itemize}
+		
+		\item \textbf{Documentation:}
+		\begin{itemize}[label=-]
+			\item Provided clear documentation on how to run and test the application.
+			\item Included details on the cron job configuration.
+			\item Added information about the \texttt{.env} file and the \texttt{MINUTE\_MODE} variable.
+		\end{itemize}
+		
+		\item \textbf{Submission:}
+		\begin{itemize}[label=-]
+			\item Submitted the project with a README file explaining the architecture, technologies used, and instructions for running the application.
+			\item Published the work in the personal GitHub repository and shared the URL.
+		\end{itemize}
+	
+	\end{enumerate}
+	
+	\section*{Additional Notes}
+	\begin{itemize}[label=-]
+		\item TypeScript was used for type safety and better code organization.
+		\item Best practices for error handling and logging were followed.
+		\item The code is well-documented and easy to understand.
+		\item The cron job logic is based on epoch time to run every minute or every 3 1/2 hours depending on the \texttt{MINUTE\_MODE} environment variable.
+	\end{itemize}
+	
+	\textbf{To set up the project, please refer to the Readme.md file. Additionally, ensure to configure the \texttt{.env} file with the provided information, including the \texttt{MINUTE\_MODE} variable.}
+	
+\end{document}
