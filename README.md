@@ -131,6 +131,13 @@ $ npm run start:dev
 # production mode
 $ npm run start:prod
 ```
+## building the applicaiton
+```bash
+# To reduce memory and resource allocation
+$ npm run build
+# To run build
+$ node ./dist/main.js  # in project home directory
+```
 
 ## Test
 
@@ -144,3 +151,4 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
